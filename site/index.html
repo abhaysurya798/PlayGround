@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hi — a small hello for everyone</title>
+  <meta name="description" content="A tiny, playful website that helps you say hello in twelve languages. Type a name, pick a mood, and make a greeting worth keeping.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-ready="false">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Hi, home">
+      <span class="brand-mark">hi</span><span class="brand-dot">.</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#hello">Say hello</a>
+      <a href="#world">Around the world</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+        <span class="theme-dot" aria-hidden="true"></span>
+        <span class="theme-label">Theme</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> A tiny website with a big welcome</p>
+        <h1 class="hero-title">
+          <span id="time-greeting">Hello</span><span class="comma">,</span><br>
+          <span class="gradient-text">world</span><span class="period">.</span>
+        </h1>
+        <p class="lede">Type a name. Pick a mood. Get a hello worth keeping. No accounts, no noise — just twelve ways to say the nicest word there is.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#hello">Make a hello</a>
+          <button class="button ghost" id="surprise" type="button">Surprise me</button>
+        </div>
+        <dl class="hero-stats" aria-label="Site facts">
+          <div><dt>Languages</dt><dd>12</dd></div>
+          <div><dt>Moods</dt><dd>05</dd></div>
+          <div><dt>Cost</dt><dd>Free</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art">
+        <div class="orb orb-a" aria-hidden="true"></div>
+        <div class="orb orb-b" aria-hidden="true"></div>
+        <div class="orb orb-c" aria-hidden="true"></div>
+        <article class="hello-card" id="hero-card" aria-label="Today's hello">
+          <div class="card-top">
+            <span class="card-label">Today's hello</span>
+            <span class="card-lang" id="card-lang">EN</span>
+          </div>
+          <p class="card-greeting" id="card-greeting">Hi</p>
+          <p class="card-name" id="card-name">friend</p>
+          <div class="card-note" id="card-note">Glad you're here.</div>
+          <div class="card-footer">
+            <span id="card-mood">Sunny</span>
+            <span id="card-time">--:--</span>
+          </div>
+        </article>
+        <p class="art-caption">One page. Twelve hellos. Zero pressure.</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>hi</span><span>hola</span><span>bonjour</span><span>hallo</span><span>こんにちは</span><span>नमस्ते</span><span>jambo</span><span>مرحبا</span><span>olá</span><span>안녕하세요</span><span>ciao</span><span>merhaba</span>
+        <span>hi</span><span>hola</span><span>bonjour</span><span>hallo</span><span>こんにちは</span><span>नमस्ते</span><span>jambo</span><span>مرحبا</span><span>olá</span><span>안녕하세요</span><span>ciao</span><span>merhaba</span>
+      </div>
+    </div>
+
+    <section class="section builder-section" id="hello">
+      <div class="section-head">
+        <p class="eyebrow">01 — build a greeting</p>
+        <h2>Your hello,<br>your way.</h2>
+        <p>Fill in the details and watch the card update as you type. Everything happens right here in your browser.</p>
+      </div>
+
+      <div class="builder">
+        <form class="panel form-panel" id="hello-form">
+          <label class="field" for="name">
+            <span>Who are you saying hi to?</span>
+            <input id="name" name="name" type="text" maxlength="24" placeholder="friend" autocomplete="off" spellcheck="false">
+          </label>
+
+          <fieldset class="field">
+            <legend>Pick a mood</legend>
+            <div class="chips" id="mood-chips" role="group" aria-label="Mood">
+              <button type="button" class="chip is-active" data-mood="sunny" aria-pressed="true">Sunny</button>
+              <button type="button" class="chip" data-mood="cozy" aria-pressed="false">Cozy</button>
+              <button type="button" class="chip" data-mood="bold" aria-pressed="false">Bold</button>
+              <button type="button" class="chip" data-mood="chill" aria-pressed="false">Chill</button>
+              <button type="button" class="chip" data-mood="sparkly" aria-pressed="false">Sparkly</button>
+            </div>
+          </fieldset>
+
+          <label class="field" for="language">
+            <span>Choose a language</span>
+            <select id="language" name="language"></select>
+          </label>
+
+          <button class="button primary wide" type="submit">Say hello</button>
+          <p class="form-hint" id="form-hint" role="status" aria-live="polite">Press enter or tap the button to update the card.</p>
+        </form>
+
+        <aside class="panel preview-panel" aria-label="Greeting preview">
+          <div class="preview-top">
+            <p class="preview-kicker">Live preview</p>
+            <span class="preview-code" id="preview-code">EN</span>
+          </div>
+          <p class="preview-greeting" id="preview-greeting">Hi, friend.</p>
+          <p class="preview-note" id="preview-note">Glad you're here.</p>
+          <div class="preview-phonetic">
+            <span class="phonetic-label">Say it</span>
+            <span id="preview-phonetic">hai</span>
+          </div>
+          <div class="preview-footer">
+            <span id="preview-language">English</span>
+            <button class="text-button" id="copy-hello" type="button">Copy hello</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section world-section" id="world">
+      <div class="section-head">
+        <p class="eyebrow">02 — around the world</p>
+        <h2>Everywhere,<br>the same warm word.</h2>
+        <p>Tap a card to load it into the builder above. Pronunciations are friendly approximations, not strict phonetic notation.</p>
+      </div>
+      <div class="world-grid" id="world-grid"></div>
+    </section>
+
+    <section class="section closing">
+      <p class="eyebrow">03 — that's it</p>
+      <h2>Go say hi<br>to someone.</h2>
+      <p class="closing-copy">A message takes seconds. The good mood can last all day. Send this page to a friend, or borrow a greeting from above and make someone's afternoon.</p>
+      <div class="closing-actions">
+        <button class="button primary" id="share" type="button">Copy page link</button>
+        <a class="button ghost" href="#top">Back to the top</a>
+      </div>
+      <p class="closing-status" id="share-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><span class="brand-mark">hi</span><span class="brand-dot">.</span> Made for the small joy of saying hello.</p>
+    <p class="footer-meta">Static, friendly, and yours to remix.</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
